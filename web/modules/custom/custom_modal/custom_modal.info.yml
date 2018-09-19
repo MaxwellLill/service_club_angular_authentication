@@ -1,0 +1,7 @@
+name: 'custom_modal'
+type: module
+description: 'Display a Modal'
+core: 8.x
+package: 'Service Club'
+dependencies:
+    - service_club_event

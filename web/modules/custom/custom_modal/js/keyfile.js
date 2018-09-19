@@ -1,0 +1,2 @@
+window.APP_DATA = { jwtkey: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MzY3MjQxNjcsImV4cCI6MTUzNjcyNzc2NywiZHJ1cGFsIjp7InVpZCI6IjIifX0.s-_tdfCTmv24ti8ruZ9rPkGiBHzQZTJCf3K-qorVifg'}
+alert('hello I am here');

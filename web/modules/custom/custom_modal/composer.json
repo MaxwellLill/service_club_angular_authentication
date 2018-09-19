@@ -1,0 +1,14 @@
+{
+  "name": "drupal/custom_modal",
+  "type": "drupal-module",
+  "description": "Display a Modal",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/custom_modal",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/custom_modal",
+    "source": "http://cgit.drupalcode.org/custom_modal"
+  },
+  "require": { }
+}

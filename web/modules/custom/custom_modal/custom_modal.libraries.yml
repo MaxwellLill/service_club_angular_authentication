@@ -1,0 +1,10 @@
+custom_modal:
+  version: 1.x
+  css:
+    layout:
+      css/testing.css: {}
+  js:
+    js/keyfile.js: {}
+    js/runtime.a66f828dca56eeb90e02.js: {}
+    js/polyfills.2f4a59095805af02bd79.js: {}
+    js/main.b33fc2cb66966997fae8.js: {}

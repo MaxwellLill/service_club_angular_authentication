@@ -1,0 +1,76 @@
+<?php
+
+/**
+ * @file
+ * Contains custom_modal.module.
+ */
+
+use Drupal\Component\Serialization\Json;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Link;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+use Drupal\service_club_event\Entity\EventInformation;
+
+
+/**
+ * Implements hook_help().
+ */
+function custom_modal_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the custom_modal module.
+    case 'help.page.custom_modal':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Display a Modal') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function custom_modal_theme() {
+  return [
+    'custom_modal' => [
+      'render element' => 'children',
+    ],
+  ];
+}
+
+/**
+ * @param array $build
+ * @param \Drupal\service_club_event\Entity\EventInformation $entity
+ * @param \Drupal\Core\Entity\Display\EntityViewDisplayInterface $display
+ * @param $view_mode
+ */
+function custom_modal_event_information_view(
+  array &$build,
+  EventInformation $entity,
+  EntityViewDisplayInterface $display,
+  $view_mode
+) {
+  $link_url = Url::fromRoute('custom_modal.modal');
+  $link_url->setOptions([
+    'attributes' => [
+      'class' => ['use-ajax', 'button', 'button--small'],
+      'data-dialog-type' => 'modal',
+      'data-dialog-options' => Json::encode(['width' => 800]),
+    ],
+  ]);
+
+  $build['modal_button'] = [
+    '#type' => 'markup',
+    '#markup' => Link::fromTextAndUrl(t('Open modal'), $link_url)
+      ->toString(),
+    '#attached' => [
+      'library' => [
+        'core/drupal.dialog.ajax',
+      ],
+    ],
+  ];
+}
+
