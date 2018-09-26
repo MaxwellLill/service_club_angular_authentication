@@ -1,7 +1,8 @@
 custom_modal.modal:
-  path: 'modal-example/modal'
+  path: 'modal-example/modal/{entityid}'
   defaults:
     _title: 'Modal'
     _controller: '\Drupal\custom_modal\Controller\CustomModalController::modal'
+    entityid: 'ff'
   requirements:
     _permission: 'access content'

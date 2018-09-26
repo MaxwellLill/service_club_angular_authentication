@@ -134,6 +134,7 @@
         "drupal/geofield": "^1.0",
         "drupal/geolocation": "^1.11",
         "drupal/inline_entity_form": "^1.0",
+        "drupal/jwt": "~1.0",
         "drupal/mail_login": "^1.0",
         "drupal/mailsystem": "^4.1",
         "drupal/pathauto": "^1.2",

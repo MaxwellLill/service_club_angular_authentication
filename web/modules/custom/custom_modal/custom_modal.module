@@ -53,7 +53,13 @@ function custom_modal_event_information_view(
   EntityViewDisplayInterface $display,
   $view_mode
 ) {
-  $link_url = Url::fromRoute('custom_modal.modal');
+  $userID = $entity->getOwner()->id(); // the auther of the event
+  $eventID = $entity->id();      // the ID of the event
+  dd($userID);
+  dd($eventID);
+
+  $link_url = Url::fromRoute('custom_modal.modal', array('entityid' => 'hello'));
+  //$link_url->setRouteParameter('entityid',$eventID);
   $link_url->setOptions([
     'attributes' => [
       'class' => ['use-ajax', 'button', 'button--small'],
@@ -72,5 +78,8 @@ function custom_modal_event_information_view(
       ],
     ],
   ];
+
+  $jwtKey = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE1MzY3MjQxNjcsImV4cCI6MTUzNjcyNzc2NywiZHJ1cGFsIjp7InVpZCI6IjIifX0.s-_tdfCTmv24ti8ruZ9rPkGiBHzQZTJCf3K-qorVifg';
+  $build['#attached']['drupalSettings']['app_data']['jwtkey'] = $jwtKey;
 }
 
